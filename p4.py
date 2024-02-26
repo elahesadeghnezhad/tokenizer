@@ -1,6 +1,6 @@
 import re
 
-# تعريف عبارت منظم براي توکن ها
+# regular expression for tokens
 TOKENS = [
     (r'[ \n\t]+', None), # Whitespace
     (r'/\*.*?\*/', None), # Comment
@@ -13,7 +13,7 @@ TOKENS = [
     (r'[(){}\[\],.;]', 'PUNCTUATION') # Punctuation
 ]
 
-# تعريف يک تابع براي توکن کردن کد ورودي
+# tokenize the input
 def tokenize(code):
     tokens = []
     while code:
@@ -30,7 +30,6 @@ def tokenize(code):
         code = code[match.end():]
     return tokens
 
-# خواندن کد از یک فایل و توکن کردن آن
 filename ='./Simple.txt'
 with open(filename, 'r') as file:
     code = file.read()
